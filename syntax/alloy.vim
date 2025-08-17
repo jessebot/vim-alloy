@@ -28,7 +28,8 @@ syn match alloyOperator "="
 
 syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment
 
-syn match alloyMapSpecial "[{][}]"
+syn match alloyMapSpecial "{"
+syn match alloyMapSpecial "}"
 
 syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
