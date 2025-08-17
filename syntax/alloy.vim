@@ -38,6 +38,6 @@ syn region alloyBlockLabel  start=/"/ end=/"/ contained
 syn match alloyMapSpecial "{"
 
 " attempt to match left side of equalsign inside the block
-syn match alloyParameter /^.*=/
+syn match alloyParameter /^.*=/ contains=alloyComment,alloyOperator
 
 let b:current_syntax = 'alloy'
