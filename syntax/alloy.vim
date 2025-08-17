@@ -27,18 +27,10 @@ syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 syn match alloyOperator "="
 
 syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment
+
+syn match alloyMapSpecial "[{][}]"
+
 syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
-
-hi def link alloyBlockName  Structure
-hi def link alloyBlockLabel String
-hi def link alloyString     String
-hi def link alloyEscape     Special
-hi def link alloyOperator   Special
-hi def link alloyInt        Number
-hi def link alloyFloat      Number
-hi def link alloyConstant   Constant
-hi def link alloyComment    Comment
-hi def link alloyTodo       Todo
 
 let b:current_syntax = 'alloy'
