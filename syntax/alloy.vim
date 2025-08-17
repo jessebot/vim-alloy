@@ -12,6 +12,7 @@ syn region alloyComment start=/\/\*/ end=/\*\// contains=alloyTodo
 
 syn region alloyString start=/"/ end=/"/ contains=alloyEscape
 
+" closing brace
 syn match alloyMapSpecial "}"
 
 syn match alloyEscape display contained "\\[0-7]\{3}"
@@ -25,6 +26,7 @@ syn match alloyInt   "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\
 syn match alloyFloat "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
+" all equal signs
 syn match alloyOperator "="
 
 syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyMapSpecial
@@ -32,6 +34,10 @@ syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,a
 syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
 
+" opening brace
 syn match alloyMapSpecial "{"
+
+" attempt to match left side of equalsign inside the block
+syn region alloyParameter  start=/^[A-Za-z_]*/ end=/=/ skipwhite
 
 let b:current_syntax = 'alloy'
