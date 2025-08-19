@@ -46,6 +46,7 @@ syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
 " all equal signs
 syn match alloyOperator "="
+syn match alloyOperator "\+"
 
 syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyBlockBrace
 
