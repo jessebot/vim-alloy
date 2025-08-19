@@ -44,9 +44,10 @@ syn match alloyInt   "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\
 syn match alloyFloat "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
-" all equal signs
+" all equal signs, plush signs, and commas
 syn match alloyOperator "="
 syn match alloyOperator "\v\+"
+syn match alloyOperator ","
 
 syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyBlockBrace
 
