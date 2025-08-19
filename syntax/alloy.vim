@@ -10,7 +10,9 @@ syn keyword alloyConstant           true false null
 syn region alloyComment start=/\/\// end=/$/    contains=alloyTodo
 syn region alloyComment start=/\/\*/ end=/\*\// contains=alloyTodo
 
-syn region alloyString start=/"/ end=/"/ contains=alloyEscape
+syn match alloyQuotes /"/
+
+syn region alloyString start=/"/ end=/"/ contains=alloyEscape,alloyPeriod,alloyQuotes
 
 " opening brace
 syn match alloyBlockBrace "{"
