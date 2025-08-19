@@ -45,7 +45,7 @@ syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
 
 " attempt to match left side of equalsign inside the block
-syn match alloyAttribute /^.*=/ contains=alloyComment,alloyOperator
+syn match alloyAttribute /^.\{-}=/ contains=alloyComment,alloyOperator
 
 " attempt to match right side of equalsign inside the block
 syn region alloyValue start=/"/ end=/"/ contains=alloyComment,alloyInt,alloyFloat,alloyListSpecial,alloyBlockBrace oneline
