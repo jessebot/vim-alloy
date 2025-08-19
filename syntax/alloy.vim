@@ -10,7 +10,30 @@ syn keyword alloyConstant           true false null
 syn region alloyComment start=/\/\// end=/$/    contains=alloyTodo
 syn region alloyComment start=/\/\*/ end=/\*\// contains=alloyTodo
 
-syn region alloyString start=/"/ end=/"/ contains=alloyEscape
+syn region alloyString start=/"/ end=/"/ contains=alloyEscape,alloyPeriod,alloyQuotes
+
+"syn match alloyQuotes '"' contained
+
+" opening brace
+syn match alloyBlockBrace "{"
+" closing brace
+syn match alloyBlockBrace "}"
+
+" add folding on blocks
+syn region alloyBlock start="{" end="}" transparent fold
+
+" closing bracket
+syn match alloyBrackets "]"
+" opening bracket
+syn match alloyBrackets "\["
+
+" closing paren
+syn match alloyParentheses ")"
+" opening paren
+syn match alloyParentheses "("
+
+" match periods
+syn match alloyPeriod "\."
 
 syn match alloyEscape display contained "\\[0-7]\{3}"
 syn match alloyEscape display contained +\\[abfnrtv\\'"]+
@@ -23,9 +46,18 @@ syn match alloyInt   "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\
 syn match alloyFloat "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
-syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment
+" all equal signs, plush signs, and commas
+syn match alloyOperator "="
+syn match alloyOperator "\v\+"
+syn match alloyOperator ","
+
+syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyBlockBrace
+
 syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
+
+" attempt to match left side of equalsign inside the block
+syn match alloyAttribute /^.\{-}=/ contains=alloyComment,alloyOperator
 
 hi def link alloyBlockName  Structure
 hi def link alloyBlockLabel String
