@@ -48,6 +48,6 @@ syn region alloyBlockLabel  start=/"/ end=/"/ contained
 syn match alloyAttribute /^.\{-}=/ contains=alloyComment,alloyOperator
 
 " attempt to match right side of equalsign inside the block
-syn region alloyValue start=/"/ end=/"/ contains=alloyComment,alloyInt,alloyFloat,alloyListSpecial,alloyBlockBrace oneline
+syn region alloyValue start=/"/ end=/"/ contains=alloyComment,alloyInt,alloyFloat,alloyListSpecial,alloyBlockBrace
 
 let b:current_syntax = 'alloy'
