@@ -12,10 +12,13 @@ syn region alloyComment start=/\/\*/ end=/\*\// contains=alloyTodo
 
 syn region alloyString start=/"/ end=/"/ contains=alloyEscape
 
-" closing brace
-syn match alloyMapSpecial "}"
 " opening brace
-syn match alloyMapSpecial "{"
+syn match alloyBlockOpen "{"
+" closing brace
+syn match alloyBlockClose "}"
+
+" add folding on blocks
+syn region alloyBlock start="{" end="}" transparent fold
 
 " closing bracket
 syn match alloyListSpecial "]"
@@ -36,15 +39,15 @@ syn match alloyFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 " all equal signs
 syn match alloyOperator "="
 
-syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyMapSpecial
+syn match  alloyBlockHeader /^[^=]\+{/ contains=alloyBlockName,alloyBlockLabel,alloyComment,alloyMapSpecial skipwhite
 
 syn match  alloyBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region alloyBlockLabel  start=/"/ end=/"/ contained
 
 " attempt to match left side of equalsign inside the block
-syn match alloyAttribute /^.*=/ contains=alloyComment,alloyOperator contained
+syn match alloyAttribute /^.*=/ contains=alloyComment,alloyOperator
 
 " attempt to match right side of equalsign inside the block
-" syn match alloyValue /=.*$/ contains=alloyComment,alloyInt,alloyFloat,alloyListSpecial,alloyMapSpecial
+" syn region alloyValue start=/"/ end=/"/ contains=alloyComment,alloyInt,alloyFloat,alloyListSpecial,alloyMapSpecial
 
 let b:current_syntax = 'alloy'
