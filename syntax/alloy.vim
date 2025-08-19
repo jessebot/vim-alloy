@@ -21,9 +21,17 @@ syn match alloyBlockBrace "}"
 syn region alloyBlock start="{" end="}" transparent fold
 
 " closing bracket
-syn match alloyListSpecial "]"
+syn match alloyBrackets "]"
 " opening bracket
-syn match alloyListSpecial "\["
+syn match alloyBrackets "\["
+
+" closing paren
+syn match alloyParentheses ")"
+" opening paren
+syn match alloyParentheses "("
+
+" match periods
+syn match alloyPeriod "\."
 
 syn match alloyEscape display contained "\\[0-7]\{3}"
 syn match alloyEscape display contained +\\[abfnrtv\\'"]+
@@ -46,8 +54,5 @@ syn region alloyBlockLabel  start=/"/ end=/"/ contained
 
 " attempt to match left side of equalsign inside the block
 syn match alloyAttribute /^.\{-}=/ contains=alloyComment,alloyOperator
-
-" attempt to match right side of equalsign inside the block
-syn region alloyValue start=/=[ ]"/ end=/"/
 
 let b:current_syntax = 'alloy'
