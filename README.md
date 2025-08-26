@@ -7,7 +7,7 @@ This is a fork of [grafana/vim-alloy](https://github.com/grafana/vim-alloy) to a
 
 <img width="450" height="245" alt="Example screenshot of the syntax highlighting" src="https://github.com/user-attachments/assets/bcaf55ea-aea4-459b-b091-9e0c7b547d5c" />
 
-I use [spacechalk.nvim](https://github.com/space-chalk/spacechalk.nvim), but here's the highlights I used there for the above screenshot:
+I use [spacechalk.nvim](https://github.com/space-chalk/spacechalk.nvim), but here's [the highlights I used there](https://github.com/space-chalk/spacechalk.nvim/blob/b585dee2cd5c1d5ce8be0c3bd735085bdb18906c/colors/spacechalk.vim#L283) for the above screenshot:
 
 ```vim
 hi def link alloyString     String
