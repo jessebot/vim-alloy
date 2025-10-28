@@ -1,3 +1,6 @@
+> [!NOTE]
+> This fork has been moved to https://git.smallhack.org/small-hack/vim-alloy
+
 # vim-alloy
 
 This plugin adds support for syntax higlighting Grafana Alloy configuration
